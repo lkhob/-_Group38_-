@@ -81,7 +81,7 @@ void setup() {
   delay(1000); // 開機電流穩定
   lastVlsState = (digitalRead(BUTTON_VLS) == LOW);
   updateASL(); 
-  Serial.println("系統啟動：死區補償優化版");
+  Serial.println("系統啟動");
 }
 
 // ==========================================
@@ -106,7 +106,7 @@ void loop() {
 
   if (input != "") {
     input.trim(); input.toUpperCase(); 
-    if (input == "STOP") triggerEBS("收到遠程 STOP 指令");
+    if (input == "STOP") triggerEBS("收到 STOP 指令");
     else if (input == "RESET" && currentStatus == STATE_EBS_LOCKED) {
       currentStatus = STATE_SAFE; updateASL();
     }
